@@ -43,3 +43,25 @@ h5 {
   font-weight: 200;
   font-style: normal;
 }
+.footer {
+  padding: .5rem 0;
+  color: #999;
+  text-align: center;
+  background-color: #282C34;
+  border-top: .05rem solid #e5e5e5;
+}
+.footer-link, .footer-link:link,.footer-link:visited,.footer-link:hover {
+ color: white;
+
+}
+.list-group-item {
+  display: flex;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}

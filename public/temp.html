@@ -27,7 +27,7 @@
         </nav>
     </header>
     <!--MAIN-->
-    <main class="container-fluid">
+    <main class="container-fluid mb-2">
         <div class="row">
             <!--ASIDE SECTION-->
             <aside class="col-md-2 mt-4 bg-light">
@@ -40,15 +40,15 @@
                     </div>
                 </div>
                 <div class="list-group mb-5" id="search-history">
-                    <li class="list-group-item">Tokyo</li>
-                    <li class="list-group-item">London</li>
-                    <li class="list-group-item">San Tropez</li>
-                    <li class="list-group-item">Toronto</li>
-                    <li class="list-group-item">Ibiza</li>
+                    <li class="list-group-item">Tokyo<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#exampleModal"></i></li>
+                    <li class="list-group-item">London<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#exampleModal"></i></li>
+                    <li class="list-group-item">San Tropez<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#exampleModal"></i></li>
+                    <li class="list-group-item">Toronto<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#exampleModal"></i></li>
+                    <li class="list-group-item">Ibiza<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#exampleModal"></i></li>
                 </div>
             </aside>
             <!--CARD AREA-->
-            <section>
+            <section class="col-md-10">
                 <div class="card-group">
                     <div class="card">
                         <img src="./images/jakarta.jpg" class="card-img-top"
@@ -56,7 +56,10 @@
                         <div class="card-body">
                             <h3 class="card-title">Jakarta</h3>
                             <h5>Indonesia</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam, magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit est.</p>
+                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                                architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
+                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
+                                est.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -65,7 +68,10 @@
                         <div class="card-body">
                             <h3 class="card-title">Selfoss</h3>
                             <h5>Iceland</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam, magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit est.</p>
+                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                                architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
+                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
+                                est.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -73,7 +79,10 @@
                         <div class="card-body">
                             <h3 class="card-title">Mumbai</h3>
                             <h5>India</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam, magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit est.</p>
+                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                                architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
+                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
+                                est.</p>
                         </div>
                     </div>
                     <div class="card">
@@ -81,13 +90,59 @@
                         <div class="card-body">
                             <h3 class="card-title">Phuket</h3>
                             <h5>Thailand</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam, magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit est.</p>
+                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                                architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
+                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
+                                est.</p>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
+            <!--MODALS-->
+        <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Modal body text goes here.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </main>
+
+    <!--FOOTER-->
+    <footer class="footer mt-5">
+        <div class="col">
+            <ul class="d-flex list-inline justify-content-end">
+                <li class="list-inline-item">
+                    <a class="footer-link" href="" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="footer-link" href="" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="footer-link" href="" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 
 
 

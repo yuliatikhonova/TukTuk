@@ -7,8 +7,8 @@ const uploadFiles = async (req, res) => {
   try {
     console.log(req.file);
 
-    if (req.file == undefined) {
-      return res.send(`You must select a file.`);
+    if (req.file === undefined) {
+      return res.send("You must select a file.");
     }
 
     Image.create({
@@ -16,14 +16,14 @@ const uploadFiles = async (req, res) => {
       name: req.file.originalname,
       data: fs.readFileSync(
         __basedir + "/resources/static/assets/uploads/" + req.file.filename
-      ),
-    }).then((image) => {
+      )
+    }).then(image => {
       fs.writeFileSync(
         __basedir + "/resources/static/assets/tmp/" + image.name,
         image.data
       );
 
-      return res.send(`File has been uploaded.`);
+      return res.send("File has been uploaded.");
     });
   } catch (error) {
     console.log(error);
@@ -32,5 +32,5 @@ const uploadFiles = async (req, res) => {
 };
 
 module.exports = {
-  uploadFiles,
+  uploadFiles
 };

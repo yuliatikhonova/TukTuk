@@ -18,12 +18,12 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/main");
     }
-    res.render("login",{});
+    res.render("login", {});
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/main", isAuthenticated, (req, res) => {
-    res.render("mainpage",{});
+    res.render("mainpage", {});
   });
 };

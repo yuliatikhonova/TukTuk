@@ -1,4 +1,33 @@
-form.signup,
-form.login {
-  margin-top: 50px;
+.nav-logo {
+  width: 60px;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.nav-links {
+  font-family: azo-sans-web,sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  color: black;
+  margin-top: 30px;
+  margin-right: 30px;
+  font-size: 20px;
+  
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  color: #63EAC0;
+}
+.bucketList-header {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: -2px;
+}
+.btn {
+  background-color: #63EAC0;
 }

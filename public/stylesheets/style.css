@@ -31,3 +31,15 @@ a:hover {
 .btn {
   background-color: #63EAC0;
 }
+h3 {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: -2px;
+}
+h5 {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}

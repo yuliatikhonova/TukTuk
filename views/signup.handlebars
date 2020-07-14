@@ -1,32 +1,74 @@
- <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-      </div>
+ <div class="topPick mb-5">
+        <header>
+            <nav class="navbar p-3 mb-2">
+                <a href="temp.html"> <img src="./images/LOGO-BLACK.svg" alt="TukTuk Logo" class="nav-logo"> </a>
+                <div>
+                    <a href="/login" class="nav-links">log in</a>
+                    <a href="/signup" class="nav-links">sign up</a>
+                </div>
+            </nav>
+        </header>
+        <div>
+            <!-- <h1>Share your</h1>
+            <h1>JOURNEY</h1> -->
+        </div>
     </div>
-  </nav>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Sign Up Form</h2>
-        <form class="signup">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-default">Sign Up</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
-      </div>
-    </div>
-  </div>
+    <!--MAIN-->
+    <main class="container-fluid">
+        <div class="row-md-4">
+            <div class="tukSection col-md-12 mb-5">
+                <img src="./images/logo2.svg" alt="logo for Tuktuk" class="logo2 mb-5">
+                <p>Let us keep track of where you want to go</p>
+                <p>So you can relive and daydream about where you have been...</p>
+            </div>
+        </div>
+        <div>
+            <div class="row-md-4" id="Subscribe-area">
+                <div class="col-md-12">
+                    <h4>Subscribe</h4>
+                    <p>Sign up with your email and password</p>
+                </div>
+            </div>
+            <form>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="E-mail Address">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control mb-5" placeholder="password">
+                    </div>
+                </div>
+                <div class="sign-up row-md-4">
+                    <div class="col-md-12">
+                    <button type="button" class="sign-up btn btn-outline-dark btn-lg mt-3">Sign Up</button>
+                </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer class="footer mt-5">
+        <div class="col">
+            <ul class="d-flex list-inline justify-content-end">
+                <li class="list-inline-item">
+                    <a class="footer-link" href="" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="footer-link" href="" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="footer-link" href="" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
 
   <script type="text/javascript" src="js/signup.js"></script>

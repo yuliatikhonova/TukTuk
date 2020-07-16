@@ -228,7 +228,7 @@ input:checked + .slider:before {
 @media only screen and (min-width: 991px){
    line-height: 113px;
   }
-}
+
 @media only screen and (max-width: 991px){
   .topPick {
     background-image: url(../images/ForMobile.svg);

@@ -36,4 +36,46 @@ $(document).ready(() => {
         console.log(err);
       });
   }
+  if (localStorage.getItem("switch") === "light") {
+    if ($("body").hasClass("dark")) {
+      $("body").removeClass("dark");
+      $("#darkMode").text("OFF");
+    }
+  } else if (localStorage.getItem("switch") === "dark") {
+    $("body").addClass("dark");
+    $("#darkMode").text("ON");
+  } else {
+    console.log($("body"));
+    if ($("body").hasClass("dark")) {
+      $("body").removeClass("dark");
+      $("#darkMode").text("OFF");
+    }
+  }
+});
+
+$(() => {
+  let mode = "dark";
+  $("#darkMode").change(event => {
+    event.stopPropagation();
+    // console.log($("body").hasClass("dark"));
+    // if ($("body").hasClass("dark")) {
+    //   $("body").removeClass("dark");
+    //   $("#darkMode").text("OFF");
+    //
+    // } else {
+    //   $("body").addClass("dark");
+    //   $("#darkMode").text("ON");
+    //
+    // }
+
+    if (mode === "dark") {
+      mode = "light";
+      localStorage.setItem("switch", "light");
+      $("body").attr("class", "light");
+    } else {
+      mode = "dark";
+      localStorage.setItem("switch", "dark");
+      $("body").attr("class", "dark");
+    }
+  });
 });

@@ -64,14 +64,17 @@ body {
 }
 main {
   flex: 1;
+  background-color: white;
 }
 .topPick {
-  background-image: url("../images/pink2.svg");
-  /* background-image: url("../images/CityofGod.jpg"); */
+  background-image: url(../images/pink-india.jpg);
+  /* background-image: url(../images/CityofGod.jpg); */
   background-repeat: no-repeat;
   height: 100vh;
   background-size: cover;
-  
+  max-width: 100%;
+  /* z-index: -1; */
+  min-height: auto;
 }
 h1 { 
   font-family: acumin-pro, sans-serif;
@@ -105,8 +108,31 @@ p{
   font-size: 20px;
   margin-bottom: 20px;
 }
+.shareJourney, .centered-area{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.centered-area{
+  width: 350px;
+}
 .sign-up {
   background-color: white;
   border-radius: 0px;
   text-align: center;
  }
+@media only screen and (min-width: 991px){
+  .shareJourney{
+   line-height: 113px;
+  }
+}
+@media only screen and (max-width: 991px){
+  .topPick {
+    background-image: url(../images/ForMobile.svg);
+  }
+  .shareJourney{
+    font-size: 6rem;
+  }
+
+}

@@ -1,3 +1,5 @@
+
+
 $(document).ready(() => {
 
   const $newItemInput = $("#Add-city");//the city input
@@ -27,6 +29,7 @@ $("#myEditor").summernote({
     ['para', ['ul', 'ol', 'paragraph']],
     ['height', ['height']]
   ]
+});
 
 //=============================================================================================== Adding the city on the list
   //adding the rows/list of data
@@ -74,5 +77,3 @@ $("#myEditor").summernote({
     $.post("/api/posts", post, getPost);
     $newItemInput.val("");
   };
-
-});

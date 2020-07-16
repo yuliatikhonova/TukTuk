@@ -1,11 +1,15 @@
 <!--Header-->
-    <header>
-        <nav class="navbar p-3 mb-2">
-            <a href="temp.html"> <img src="./images/LOGO-BLACK.svg" alt="TukTuk Logo" class="nav-logo"> </a>
-            <a href="/logout" class="nav-ulnks">log out</a>
-        </nav>
-    </header>
-    <!--MAIN-->
+<header>
+    <nav class="navbar p-3 mb-2">
+        <a href="temp.html"> <img src="./images/LOGO-BLACK.svg" alt="TukTuk Logo" class="nav-logo"> </a>
+        <a href="/logout" class="nav-ulnks">log out</a>
+        {{!-- <div class="switch right">Dark mode:
+            <input id="darkMode" class="inner-switch" type="checkbox" checked data-toggle="toggle">
+        </div> --}}
+    </nav>
+</header>
+<!--MAIN-->
+{{!-- <div id="darkMode"> --}}
     <main class="container-fluid mb-2">
         <div class="row">
             <!--ASIDE SECTION-->
@@ -19,8 +23,10 @@
                     </div>
                 </div>
                 <div class="ulst-group mb-5" id="search-history">
-                    <li class="list-group-item">Tokyo<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#exampleModal"></i></li>
-                    <li class="list-group-item">London<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#exampleModal"></i></li>
+                    <li class="list-group-item">Tokyo<i class="fas fa-edit ml-auto" data-toggle="modal"
+                            data-target="#exampleModal"></i></li>
+                    <li class="list-group-item">London<i class="fas fa-edit ml-auto" data-toggle="modal"
+                            data-target="#exampleModal"></i></li>
                     <span class="todo-container"></span>
                 </div>
             </aside>
@@ -76,26 +82,26 @@
                 </div>
             </section>
         </div>
-            <!--MODALS-->
+        <!--MODALS-->
         <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
             <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
     </main>
 
     <!--FOOTER-->
@@ -120,4 +126,5 @@
             </ul>
         </div>
     </footer>
+{{!-- </div> --}}
 <script src="/js/members.js" type="text/javascript"></script>

@@ -1,8 +1,39 @@
 // Requiring our models and passport as we've configured it
+require("dotenv").config();
+require("express");
+const controller = require("../controllers/api");
+const fs = require("fs");
+const cloudName = process.env.CLOUDINARY_NAME;
+const apiKey = process.env.CLOUDINARY_KEY;
+const apiSecret = process.env.CLOUDINARY_SECRET;
+const cloudinary = require("cloudinary");
+const uploadcdny = (req, res, next) => {
+  if (req.file) {
+    cloudinary.uploader.upload(
+      "public/uploads/" + req.file.filename,
+      result => {
+        fs.unlink("public/uploads/" + req.file.filename, err => {
+          if (err) {
+            throw err;
+          }
+          console.log("path/file.txt was deleted");
+        });
+        req.file.filename = result.url;
+        return next();
+      }
+    );
+  } else {
+    return next();
+  }
+};
 const db = require("../models");
 const passport = require("../config/passport");
-require('dotenv').config()
-module.exports = function (app) {
+cloudinary.config({
+  cloudName: cloudName,
+  apiKey: apiKey,
+  apiSecret: apiSecret
+});
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -53,29 +84,46 @@ module.exports = function (app) {
 
   //===========================================================Adding to bucket list
 
-  app.get("/api/posts", function (req, res) {//Reading the data from the data base
-    db.Post.findAll({}).then(function (dbPost) {//database get my Post model and find me all of them then with the data (dbPost)
-      res.json(dbPost);//send the data back to what ever requested it in json format
+  app.get("/api/posts", (req, res) => {
+    //Reading the data from the data base
+    db.Post.findAll({}).then(dbPost => {
+      //database get my Post model and find me all of them then with the data (dbPost)
+      res.json(dbPost); //send the data back to what ever requested it in json format
     });
   });
 
-
-  app.post("/api/posts", function (req, res) {// POST route for saving a new post
+  app.post("/api/posts", (req, res) => {
+    // POST route for saving a new post
     console.log(req.body);
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
-    db.Post.create({// create takes an argument of an object describing the item we want to
+    db.Post.create({
+      // create takes an argument of an object describing the item we want to
       city: req.body.city
-    }).then(function (dbPost) {
-      // We have access to the new todo as an argument inside of the callback function
-      res.json(dbPost);
     })
-      .catch(function (err) {
+      .then(dbPost => {
+        // We have access to the new todo as an argument inside of the callback function
+        res.json(dbPost);
+      })
+      .catch(err => {
         // Whenever a validation or flag fails, an error is thrown
         // We can "catch" the error to prevent it from being "thrown", which could crash our node app
         res.json(err);
       });
   });
+  function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+      return next();
+    }
+    res.json({ error: "401:Not authenticated" });
+  }
+  app.get("/", isLoggedIn, (req, res) => {
+    res.send("Welcome to the api!");
+  });
+
+  // router.post('/checkpoint', isLoggedIn, upload.single('imgUpload'), controller.postCheckpoint);
+  app.post("/checkpoint", isLoggedIn, uploadcdny, controller.postCheckpoint);
+  app.put("/checkpoint", isLoggedIn, controller.putCheckpoint);
+  app.delete("/checkpoint", isLoggedIn, controller.deleteCheckpoint);
 };
 //===========================================================
-

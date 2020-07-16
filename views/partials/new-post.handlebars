@@ -7,10 +7,10 @@
             </button>
         </div>
         <div class="modal-body">
-            <form id="newPostForm">
+            <form id="newPostForm" action="/api/add" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">Example file input</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <label for="imageUpload">Add Image</label>
+                    <input type="file" class="form-control-file" id="imageUpload">
                 </div>
                 <textarea name="text" id="myEditor"></textarea>
             </form>

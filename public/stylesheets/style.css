@@ -218,12 +218,13 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 */
-
+/*
 .dark * {
     background: #222;
     color: #e6e6e6;
     border-color: #e6e6e6;
 }
+*/
 @media only screen and (min-width: 991px){
    line-height: 113px;
   }

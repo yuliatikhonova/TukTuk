@@ -23,10 +23,8 @@
                     </div>
                 </div>
                 <div class="ulst-group mb-5" id="search-history">
-                    <li class="list-group-item">Tokyo<i class="fas fa-edit ml-auto" data-toggle="modal"
-                            data-target="#exampleModal"></i></li>
-                    <li class="list-group-item">London<i class="fas fa-edit ml-auto" data-toggle="modal"
-                            data-target="#exampleModal"></i></li>
+                    <li class="list-group-item">Tokyo<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#newPostModal"></i></li>
+                    <li class="list-group-item">London<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#newPostModal"></i></li>
                     <span class="todo-container"></span>
                 </div>
             </aside>
@@ -80,29 +78,49 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-        <!--MODALS-->
-        <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <div class="card">
+                    <img src="./images/iceland.jpg" class="card-img-top"
+                        alt="image of a empty road that goes to the horizon">
+                    <div class="card-body">
+                        <h3 class="card-title">Selfoss</h3>
+                        <h5>Iceland</h5>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                            architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
+                            magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
+                            est.</p>
                     </div>
-                    <div class="modal-body">
-                        <p>Modal body text goes here.</p>
+                </div>
+                <div class="card">
+                    <img src="./images/henna.jpg" class="card-img-top" alt="image hands with henna tattoos">
+                    <div class="card-body">
+                        <h3 class="card-title">Mumbai</h3>
+                        <h5>India</h5>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                            architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
+                            magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
+                            est.</p>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                <div class="card">
+                    <img src="./images/phuket.jpg" class="card-img-top" alt="image of a riverboat">
+                    <div class="card-body">
+                        <h3 class="card-title">Phuket</h3>
+                        <h5>Thailand</h5>
+                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
+                            architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
+                            magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
+                            est.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </section>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="newPostModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        {{> new-post}}
+    </div>
+</main>
 
     <!--FOOTER-->
     <footer class="footer mt-5">

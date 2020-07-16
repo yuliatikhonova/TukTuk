@@ -1,12 +1,23 @@
 // Requiring our models and passport as we've configured it
 require("dotenv").config();
-require("express");
-const controller = require("../controllers/api");
 const fs = require("fs");
 const cloudName = process.env.CLOUDINARY_NAME;
+const  crypto = require('crypto');
 const apiKey = process.env.CLOUDINARY_KEY;
 const apiSecret = process.env.CLOUDINARY_SECRET;
 const cloudinary = require("cloudinary");
+const mime = require('mime');
+const multer = require('multer');
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: 'public/uploads',
+    filename: function (req, file, cb) {
+      crypto.pseudoRandomBytes(16, function (err, raw) {
+        cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+      });
+    }
+  })
+})
 const uploadcdny = (req, res, next) => {
   if (req.file) {
     cloudinary.uploader.upload(
@@ -29,11 +40,11 @@ const uploadcdny = (req, res, next) => {
 const db = require("../models");
 const passport = require("../config/passport");
 cloudinary.config({
-  cloudName: cloudName,
-  apiKey: apiKey,
-  apiSecret: apiSecret
+  cloud_name: cloudName,
+  api_key: apiKey,
+  api_secret: apiSecret
 });
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -84,22 +95,23 @@ module.exports = function(app) {
 
   //===========================================================Adding to bucket list
 
-  app.get("/api/posts", (req, res) => {
+  app.get("/api/post", isLoggedIn, (req, res) => {
     //Reading the data from the data base
-    db.Post.findAll({}).then(dbPost => {
+    db.post.findAll({ where: { UserId: req.user.id } }).then(dbPost => {
       //database get my Post model and find me all of them then with the data (dbPost)
       res.json(dbPost); //send the data back to what ever requested it in json format
     });
   });
 
-  app.post("/api/posts", (req, res) => {
+  app.post("/api/post", isLoggedIn, (req, res) => {
     // POST route for saving a new post
     console.log(req.body);
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
-    db.Post.create({
+    db.post.create({
       // create takes an argument of an object describing the item we want to
-      city: req.body.city
+      city: req.body.city,
+      UserId: req.user.id
     })
       .then(dbPost => {
         // We have access to the new todo as an argument inside of the callback function
@@ -121,9 +133,33 @@ module.exports = function(app) {
     res.send("Welcome to the api!");
   });
 
-  // router.post('/checkpoint', isLoggedIn, upload.single('imgUpload'), controller.postCheckpoint);
-  app.post("/checkpoint", isLoggedIn, uploadcdny, controller.postCheckpoint);
-  app.put("/checkpoint", isLoggedIn, controller.putCheckpoint);
-  app.delete("/checkpoint", isLoggedIn, controller.deleteCheckpoint);
+  app.post("/api/update", isLoggedIn, upload.single('imageUpload'), uploadcdny, (req, res) => {
+    console.log(req.body);
+    let hasImage = true;
+    if (req.file === undefined) {
+      req.file = {};
+      req.file.filename = null;
+    }
+    if (req.file.filename === null) {
+      hasImage = false;
+    } else {
+      req.file.filename = req.file.filename;
+    }
+    db.card.create(
+      {
+        country: req.body.country,
+        imageUpload: req.file.filename,
+        blogPost: req.body.blogPost
+      },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then(() => {
+      res.redirect("/mainpage");
+    });
+  });
+  //app.delete("/api", isLoggedIn, controller.deleteCheckpoint);
 };
 //===========================================================

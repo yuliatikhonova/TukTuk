@@ -2,7 +2,7 @@
 const db = require("../models");
 const passport = require("../config/passport");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -50,4 +50,31 @@ module.exports = function(app) {
       });
     }
   });
+
+  //===========================================================Adding to bucket list
+
+  app.get("/api/posts", function (req, res) {//Reading the data from the data base
+    db.Post.findAll({}).then(function (dbPost) {//database get my Post model and find me all of them then with the data (dbPost)
+      res.json(dbPost);//send the data back to what ever requested it in json format
+    });
+  });
+
+
+  app.post("/api/posts", function (req, res) {// POST route for saving a new post
+    console.log(req.body);
+    // insert into our table. In this case we just we pass in an object with a text
+    // and complete property (req.body)
+    db.Post.create({// create takes an argument of an object describing the item we want to
+      city: req.body.city
+    }).then(function (dbPost) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbPost);
+    })
+      .catch(function (err) {
+        // Whenever a validation or flag fails, an error is thrown
+        // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        res.json(err);
+      });
+  });
 };
+//===========================================================

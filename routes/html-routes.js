@@ -2,7 +2,7 @@
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   app.get("/", (req, res) => {
     // If the user already has an account send them to the members page
     if (req.user) {
@@ -25,14 +25,18 @@ module.exports = function(app) {
     db.post.findAll({ where: { UserId: req.user.id } }).then(dbPost => {
       console.log(dbPost)
       //database get my Post model and find me all of them then with the data (dbPost)
-      res.render("mainpage", {cities: dbPost.map(function(value){
-return value.dataValues;
-      })});
-      res.render("mainpage", {cards: dbPost.map(function(value){
-        return value.dataValues;
-              })}); //send the data back to what ever requested it in json format
+      res.render("mainpage", {
+        cities: dbPost.map(function (value) {
+          return value.dataValues;
+        })
+      });
+      res.render("mainpage", {
+        cards: dbPost.map(function (value) {
+          return value.dataValues;
+        })
+      }); //send the data back to what ever requested it in json format
     });
-    
+
   });
-  
+
 };

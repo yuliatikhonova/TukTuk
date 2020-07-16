@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+
   post.associate = models => {
     post.belongsTo(models.User, {
       foreignKey: {
@@ -15,5 +16,14 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   };
+
+  post.associate = (models) => {
+    post.hasMany(models.card, {
+      foreignKey: {
+        onDelete: "cascade"
+      }
+    });
+  };
+  
   return post;
 };

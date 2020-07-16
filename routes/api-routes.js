@@ -147,6 +147,7 @@ module.exports = function (app) {
     }
     db.card.create(
       {
+        city:req.body.city,
         country: req.body.country,
         imageUpload: req.file.filename,
         blogPost: req.body.blogPost

@@ -31,6 +31,9 @@ a:hover {
 .btn {
   background-color: #63EAC0;
 }
+#newPostForm .btn {
+  background-color: #CCCCCC;
+}
 h3 {
   font-family: acumin-pro, sans-serif;
   font-weight: 700;
@@ -65,6 +68,31 @@ body {
 main {
   flex: 1;
   background-color: white;
+}
+
+.modal-content {
+height: 100%;
+}
+
+@media (min-width: 980px) {
+ .modal-dialog {
+    max-width: 900px;
+    min-height: 60vh;
+    }
+}
+
+@media (max-width: 640px) {
+  .modal-dialog {
+    max-width: 900px;
+    min-height: 60vh;
+    }
+}
+
+@media (min-width: 768px) {
+  .modal-dialog {
+    max-width: 900px;
+    min-height: 60vh;
+    }
 }
 .topPick {
   background-image: url(../images/pink-india.jpg);

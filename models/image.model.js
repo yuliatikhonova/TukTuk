@@ -1,15 +1,27 @@
-module.exports = (sequelize, DataTypes) => {
-  const Image = sequelize.define("image", {
-    type: {
-      type: DataTypes.STRING
+module.exports = (sequelize, Sequelize) => {
+  const Checkpoint = sequelize.define("Checkpoint", {
+    cpType: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
-    name: {
-      type: DataTypes.STRING
+    value: {
+      type: Sequelize.STRING(512),
+      allowNull: false
     },
-    data: {
-      type: DataTypes.BLOB("long")
+    image: {
+      type: Sequelize.BOOLEAN,
+      default: false
+    },
+    imageUrl: {
+      type: Sequelize.STRING
     }
   });
-
-  return Image;
+  Checkpoint.associate = models => {
+    Checkpoint.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+  return Checkpoint;
 };

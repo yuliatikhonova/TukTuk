@@ -2,22 +2,25 @@
 require("dotenv").config();
 const fs = require("fs");
 const cloudName = process.env.CLOUDINARY_NAME;
-const  crypto = require('crypto');
+const crypto = require("crypto");
 const apiKey = process.env.CLOUDINARY_KEY;
 const apiSecret = process.env.CLOUDINARY_SECRET;
 const cloudinary = require("cloudinary");
-const mime = require('mime');
-const multer = require('multer');
+const mime = require("mime");
+const multer = require("multer");
 const upload = multer({
   storage: multer.diskStorage({
-    destination: 'public/uploads',
-    filename: function (req, file, cb) {
-      crypto.pseudoRandomBytes(16, function (err, raw) {
-        cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+    destination: "public/uploads",
+    filename: function(req, file, cb) {
+      crypto.pseudoRandomBytes(16, (err, raw) => {
+        cb(
+          null,
+          raw.toString("hex") + Date.now() + "." + mime.extension(file.mimetype)
+        );
       });
     }
   })
-})
+});
 const uploadcdny = (req, res, next) => {
   if (req.file) {
     cloudinary.uploader.upload(
@@ -44,7 +47,7 @@ cloudinary.config({
   api_key: apiKey,
   api_secret: apiSecret
 });
-module.exports = function (app) {
+module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -108,11 +111,12 @@ module.exports = function (app) {
     console.log(req.body);
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
-    db.post.create({
-      // create takes an argument of an object describing the item we want to
-      city: req.body.city,
-      UserId: req.user.id
-    })
+    db.post
+      .create({
+        // create takes an argument of an object describing the item we want to
+        city: req.body.city,
+        UserId: req.user.id
+      })
       .then(dbPost => {
         // We have access to the new todo as an argument inside of the callback function
         res.json(dbPost);
@@ -133,35 +137,43 @@ module.exports = function (app) {
     res.send("Welcome to the api!");
   });
 
-  app.post("/api/update", isLoggedIn, upload.single('imageUpload'), uploadcdny, (req, res) => {
-    console.log(req.body);
-    let hasImage = true;
-    if (req.file === undefined) {
-      req.file = {};
-      req.file.filename = null;
-    }
-    if (req.file.filename === null) {
-      hasImage = false;
-    } else {
-      req.file.filename = req.file.filename;
-    }
-    db.post.update(
-      {
-        city:req.body.city,
-        countryName: req.body.country,
-        imageUpload: req.file.filename,
-        blogPost: req.body.blogPost,
-        hasCard: true
-      },
-      {
-        where: {
-          id: req.body.id
-        }
+  app.post(
+    "/api/update",
+    isLoggedIn,
+    upload.single("imageUpload"),
+    uploadcdny,
+    (req, res) => {
+      console.log(req.body);
+      let hasImage = true;
+      if (req.file === undefined) {
+        req.file = {};
+        req.file.filename = null;
       }
-    ).then(() => {
-      res.redirect("/main");
-    });
-  });
+      if (req.file.filename === null) {
+        hasImage = false;
+      } else {
+        req.file.filename = req.file.filename;
+      }
+      db.post
+        .update(
+          {
+            city: req.body.city,
+            countryName: req.body.country,
+            imageUpload: req.file.filename,
+            blogPost: req.body.blogPost,
+            hasCard: true
+          },
+          {
+            where: {
+              id: req.body.id
+            }
+          }
+        )
+        .then(() => {
+          res.redirect("/main");
+        });
+    }
+  );
   //app.delete("/api", isLoggedIn, controller.deleteCheckpoint);
 };
 //===========================================================

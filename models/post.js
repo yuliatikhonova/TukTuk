@@ -28,7 +28,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       value: false
     }
-
   });
 
   post.associate = models => {
@@ -38,6 +37,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   };
-  
+
   return post;
 };

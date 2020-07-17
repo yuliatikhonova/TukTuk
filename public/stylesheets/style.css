@@ -3,7 +3,10 @@
   margin-left: 15px;
   margin-top: 15px;
 }
-
+.card {
+  margin-top: 10px;
+  margin-left: 10px;
+}
 .nav-links {
   font-family: azo-sans-web,sans-serif;
   font-weight: 200;

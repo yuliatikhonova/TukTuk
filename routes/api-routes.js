@@ -145,12 +145,13 @@ module.exports = function (app) {
     } else {
       req.file.filename = req.file.filename;
     }
-    db.card.create(
+    db.post.update(
       {
         city:req.body.city,
-        country: req.body.country,
+        countryName: req.body.country,
         imageUpload: req.file.filename,
-        blogPost: req.body.blogPost
+        blogPost: req.body.blogPost,
+        hasCard: true
       },
       {
         where: {
@@ -158,7 +159,7 @@ module.exports = function (app) {
         }
       }
     ).then(() => {
-      res.redirect("/mainpage");
+      res.redirect("/main");
     });
   });
   //app.delete("/api", isLoggedIn, controller.deleteCheckpoint);

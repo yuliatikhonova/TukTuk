@@ -6,21 +6,35 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         len: [1]
       }
+    },
+    countryName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1]
+      }
+    },
+    blogPost: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        len: [1]
+      }
+    },
+    imageUpload: {
+      type: DataTypes.STRING
+    },
+    hasCard: {
+      type: DataTypes.BOOLEAN,
+      value: false
     }
+
   });
 
   post.associate = models => {
     post.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
-      }
-    });
-  };
-
-  post.associate = (models) => {
-    post.hasMany(models.card, {
-      foreignKey: {
-        onDelete: "cascade"
       }
     });
   };

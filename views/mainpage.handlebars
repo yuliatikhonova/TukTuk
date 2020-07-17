@@ -32,9 +32,9 @@
         </aside>
         <!--CARD AREA-->
         <section class="col-md-10">
-            <div class="card-group">
+            <div class="card-deck">
                  {{#each cards}}
-                <div class="card" id="card_{{this.id}}">
+                <div class="card" name="cardName" id="card_{{this.id}}">
                     {{> card this}}
                 </div>
                 {{/each}}

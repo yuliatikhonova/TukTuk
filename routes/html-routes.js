@@ -24,17 +24,14 @@ module.exports = function (app) {
   app.get("/main", isAuthenticated, (req, res) => {
     db.post.findAll({ where: { UserId: req.user.id } }).then(dbPost => {
       console.log(dbPost)
+      const posts =  dbPost.map(function (value) {
+        return value.dataValues;
+      })
       //database get my Post model and find me all of them then with the data (dbPost)
       res.render("mainpage", {
-        cities: dbPost.map(function (value) {
-          return value.dataValues;
-        })
-      });
-      res.render("mainpage", {
-        cards: dbPost.map(function (value) {
-          return value.dataValues;
-        })
-      }); //send the data back to what ever requested it in json format
+        cities: posts.filter(p => !p.hasCard),
+        cards: posts.filter(p => p.hasCard)
+      });//send the data back to what ever requested it in json format
     });
 
   });

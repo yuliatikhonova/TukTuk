@@ -34,14 +34,9 @@
         <section class="col-md-10">
             <div class="card-group">
                  {{#each cards}}
-                 <div class="card">
-                    <img src="{{this.imageUpload}}" class="card-img-top">
-                    <div class="card-body">
-                        <h3 class="card-title">{{this.city}}</h3>
-                        <h5>{{this.countryName}}</h5>
-                        {{this.blogPost}}
-                    </div>
-                </div>  
+                <div class="card" id="card_{{this.id}}">
+                    {{> card this}}
+                </div>
                 {{/each}}
                               
             </div>

@@ -6,6 +6,8 @@
 .card {
   margin-top: 10px;
   margin-left: 10px;
+  min-width: 300px;
+    max-width: 100%;
 }
 .nav-links {
   font-family: azo-sans-web,sans-serif;
@@ -43,8 +45,14 @@ a:hover {
 .btn {
   background-color: #63EAC0;
 }
-#newPostForm .btn {
+ #newPostForm .btn{
   background-color: #CCCCCC;
+}
+#newPostForm #close-btn {
+  background-color: black;
+}
+#newPostForm #submit-btn {
+  background-color: #63EAC0;
 }
 h3 {
   font-family: acumin-pro, sans-serif;

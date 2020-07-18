@@ -9,15 +9,11 @@ TukTuk is online Travel Blog where a user can add cities to a "Bucket List" of p
 
 ## LINK
 
-XXXXXXXXX
+https://murmuring-sierra-02687.herokuapp.com
 
 ## GIF of working App
 
 ![NOTETAKER](./Tuk.gif)
-
-## snippit of code
-
-
 
 ## Table of Contents
 
@@ -41,24 +37,23 @@ To install necessary dependencies, run the following command:
 npm i
 ```
 
-## Usage
-
-NA
-
 ## License
 
 This project is licensed under the MIT license.
 
 ## Contributing
 
-NA
+*   Yulia Tikhonova
+*   Jacob Peters 
+*   Joey Reyes
+*   Michael Farris 
 
 ## Test
 
 To run tests, run the following command:
 
 ```
-NA
+npm run test
 ```
 
 ## Questions

@@ -3,7 +3,10 @@
   margin-left: 15px;
   margin-top: 15px;
 }
-
+.card {
+  margin-top: 10px;
+  margin-left: 10px;
+}
 .nav-links {
   font-family: azo-sans-web,sans-serif;
   font-weight: 200;
@@ -12,7 +15,15 @@
   margin-top: 30px;
   margin-right: 30px;
   font-size: 20px;
-  
+  }
+.nav-links1 {
+  font-family: azo-sans-web,sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  color: black;
+  margin-top: 30px;
+  margin-right: 30px;
+  font-size: 20px;
 }
 a:link {
   color: black;
@@ -27,6 +38,7 @@ a:hover {
   font-style: normal;
   font-size: 30px;
   letter-spacing: -2px;
+  color: #282C34;
 }
 .btn {
   background-color: #63EAC0;
@@ -53,7 +65,7 @@ h5 {
   background-color: #282C34;
   border-top: .05rem solid #e5e5e5;
 }
-.footer-link, .footer-link:link,.footer-link:visited,.footer-link:hover {
+.footer-link, .footer-link:link,.footer-link:visited,.footer-link:hover, .nav-links1:hover {
  color: white;
 
 }
@@ -150,6 +162,7 @@ p{
   border-radius: 0px;
   text-align: center;
  }
+ 
  /*======TOGGLE BUTTON=============*/
  /* The switch - the box around the slider */
  /*
@@ -225,11 +238,14 @@ input:checked + .slider:before {
     border-color: #e6e6e6;
 }
 */
-@media only screen and (min-width: 991px){
-   line-height: 113px;
+@media only screen and (min-width: 991px) {
+  .shareJourney{
+    line-height: 113px;
   }
+  
+}
 
-@media only screen and (max-width: 991px){
+@media only screen and (max-width: 991px) {
   .topPick {
     background-image: url(../images/ForMobile.svg);
   }

@@ -1,7 +1,8 @@
+
 {
   "development": {
     "username": "root",
-    "password": "Password",
+    "password": "Password!",
     "database": "TukTuk",
     "host": "127.0.0.1",
     "dialect": "mysql"

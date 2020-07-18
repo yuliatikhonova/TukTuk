@@ -1,23 +1,26 @@
-<div class="modal-dialog">
+<form class="modal-dialog" id="newPostForm" action="/api/update" method="POST" enctype="multipart/form-data">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" name="city">{{this.city}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <form id="newPostForm" action="/api/add" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="imageUpload">Add Image</label>
-                    <input type="file" class="form-control-file" id="imageUpload">
-                </div>
-                <textarea name="text" id="myEditor"></textarea>
-            </form>
+            <input type="hidden" name="id" value="{{this.id}}">
+            <div class="form-group">
+                <label for="imageUpload">Add Image</label>
+                <input type="file" class="form-control-file" name="imageUpload">
+            </div>
+            <div class="form-group">
+                <label for="countryName">Country Name</label>
+                <input type="text" class="form-control" name="countryName" placeholder="United States">
+            </div>
+            <textarea id="blogPost" name="blogPost"></textarea>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="submit" class="btn btn-primary">Understood</button>
         </div>
     </div>
-</div>
+</form>

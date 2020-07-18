@@ -11,7 +11,7 @@ const multer = require("multer");
 const upload = multer({
   storage: multer.diskStorage({
     destination: "public/uploads",
-    filename: function(req, file, cb) {
+    filename: function (req, file, cb) {
       crypto.pseudoRandomBytes(16, (err, raw) => {
         cb(
           null,
@@ -47,7 +47,7 @@ cloudinary.config({
   api_key: apiKey,
   api_secret: apiSecret
 });
-module.exports = function(app) {
+module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
@@ -143,7 +143,7 @@ module.exports = function(app) {
     upload.single("imageUpload"),
     uploadcdny,
     (req, res) => {
-      console.log(req.body);
+      console.log(req.file);
       let hasImage = true;
       if (req.file === undefined) {
         req.file = {};

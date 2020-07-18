@@ -23,9 +23,13 @@ const upload = multer({
 });
 const uploadcdny = (req, res, next) => {
   if (req.file) {
+    console.log(req.file.filename);
+    
     cloudinary.uploader.upload(
       "public/uploads/" + req.file.filename,
       result => {
+        console.log(result);
+        
         fs.unlink("public/uploads/" + req.file.filename, err => {
           if (err) {
             throw err;

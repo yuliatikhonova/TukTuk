@@ -9,7 +9,7 @@ $(document).ready(() => {
     $(".member-name").text(data.email);
   });
 
-  $("#blogPost").summernote({
+  $(".blogPost").summernote({
     height: 420,
     toolbar: [
       // [groupName, [list of button]]

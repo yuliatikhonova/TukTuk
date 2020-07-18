@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.define("Post", {
+  const post = sequelize.define("post", {
     city: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -7,21 +7,36 @@ module.exports = (sequelize, DataTypes) => {
         len: [1]
       }
     },
-    country: {
+    countryName: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         len: [1]
       }
     },
-    body: {
+    blogPost: {
       type: DataTypes.STRING,
       allowNull: true,
       validate: {
         len: [1]
       }
+    },
+    imageUpload: {
+      type: DataTypes.STRING
+    },
+    hasCard: {
+      type: DataTypes.BOOLEAN,
+      value: false
     }
   });
 
-  return Post;
+  post.associate = models => {
+    post.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  return post;
 };

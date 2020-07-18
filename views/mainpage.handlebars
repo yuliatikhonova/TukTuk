@@ -10,139 +10,68 @@
 </header>
 <!--MAIN-->
 {{!-- <div id="darkMode"> --}}
-    <main class="container-fluid mb-2">
-        <div class="row">
-            <!--ASIDE SECTION-->
-            <aside class="col-md-2 mt-4 bg-ulght">
-                <h1 class="bucketList-header">Bucket List</h1>
-                <div class="input-group mb-3 search-width">
-                    <input type="text" class="form-control" aria-label="List of Places the user wants to go"
-                        aria-describedby="Add-button" id="Add-city">
-                    <div class="input-group-append">
-                        <button class="btn" type="button" id="bucketlist"><i class="fas fa-caravan"></i></button>
-                    </div>
+<main class="container-fluid mb-2">
+    <div class="row">
+        <!--ASIDE SECTION-->
+        <aside class="col-md-2 mt-4 bg-ulght">
+            <h1 class="bucketList-header">Bucket List</h1>
+            <div class="input-group mb-3 search-width">
+                <input type="text" class="form-control" aria-label="List of Places the user wants to go"
+                    aria-describedby="Add-button" id="Add-city">
+                <div class="input-group-append">
+                    <button class="btn" type="button" id="bucketlist"><i class="fas fa-caravan"></i></button>
                 </div>
-                <div class="ulst-group mb-5" id="search-history">
-                    <li class="list-group-item">Tokyo<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#newPostModal"></i></li>
-                    <li class="list-group-item">London<i class="fas fa-edit ml-auto"data-toggle="modal" data-target="#newPostModal"></i></li>
-                    <span class="todo-container"></span>
+            </div>
+            <div class="ulst-group mb-5" id="search-history">
+                {{#each cities}}
+                <li class="list-group-item">{{this.city}}<i class="fas fa-edit ml-auto" data-toggle="modal"
+                        data-target="#newPostModal_{{this.id}}"></i></li>
+                {{/each}}
+                <span class="todo-container"></span>
+            </div>
+        </aside>
+        <!--CARD AREA-->
+        <section class="col-md-10">
+            <div class="card-deck">
+                 {{#each cards}}
+                <div class="card" name="cardName" id="card_{{this.id}}">
+                    {{> card this}}
                 </div>
-            </aside>
-            <!--CARD AREA-->
-            <section class="col-md-10">
-                <div class="card-group">
-                    <div class="card">
-                        <img src="./images/jakarta.jpg" class="card-img-top"
-                            alt="image of a buddhist monk ulsting to a radio">
-                        <div class="card-body">
-                            <h3 class="card-title">Jakarta</h3>
-                            <h5>Indonesia</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing eult. Natus
-                                architecto, debitis laboriosam expulcabo illo repudiandae recusandae pariatur aperiam,
-                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur veult
-                                est.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/iceland.jpg" class="card-img-top"
-                            alt="image of a empty road that goes to the horizon">
-                        <div class="card-body">
-                            <h3 class="card-title">Selfoss</h3>
-                            <h5>Iceland</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing eult. Natus
-                                architecto, debitis laboriosam expulcabo illo repudiandae recusandae pariatur aperiam,
-                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur veult
-                                est.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/henna.jpg" class="card-img-top" alt="image hands with henna tattoos">
-                        <div class="card-body">
-                            <h3 class="card-title">Mumbai</h3>
-                            <h5>India</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing eult. Natus
-                                architecto, debitis laboriosam expulcabo illo repudiandae recusandae pariatur aperiam,
-                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur veult
-                                est.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="./images/phuket.jpg" class="card-img-top" alt="image of a riverboat">
-                        <div class="card-body">
-                            <h3 class="card-title">Phuket</h3>
-                            <h5>Thailand</h5>
-                            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing eult. Natus
-                                architecto, debitis laboriosam expulcabo illo repudiandae recusandae pariatur aperiam,
-                                magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur veult
-                                est.</p>
-                        </div>
-                    </div>
-                </div>
-                {{!-- <div class="card">
-                    <img src="./images/iceland.jpg" class="card-img-top"
-                        alt="image of a empty road that goes to the horizon">
-                    <div class="card-body">
-                        <h3 class="card-title">Selfoss</h3>
-                        <h5>Iceland</h5>
-                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
-                            architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
-                            magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
-                            est.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/henna.jpg" class="card-img-top" alt="image hands with henna tattoos">
-                    <div class="card-body">
-                        <h3 class="card-title">Mumbai</h3>
-                        <h5>India</h5>
-                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
-                            architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
-                            magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
-                            est.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./images/phuket.jpg" class="card-img-top" alt="image of a riverboat">
-                    <div class="card-body">
-                        <h3 class="card-title">Phuket</h3>
-                        <h5>Thailand</h5>
-                        <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus
-                            architecto, debitis laboriosam explicabo illo repudiandae recusandae pariatur aperiam,
-                            magnam nihil ipsum, cum suscipit corporis iure rerum reprehenderit consequatur velit
-                            est.</p>
-                    </div>
-                </div>  
-            </div> --}}
+                {{/each}}
+                              
+            </div>
         </section>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="newPostModal" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        {{> new-post}}
+    {{#each cities}}
+    <div class="modal fade" id="newPostModal_{{this.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1"
+        role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        {{> new-post this}}
     </div>
+    {{/each}}
 </main>
 
-    <!--FOOTER-->
-    <footer class="footer mt-5">
-        <div class="col">
-            <ul class="d-flex ulst-inulne justify-content-end">
-                <ul class="ulst-inulne-item">
-                    <a class="footer-link" href="" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </ul>
-                <ul class="ulst-inulne-item">
-                    <a class="footer-link" href="" target="_blank" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </ul>
-                <ul class="ulst-inulne-item">
-                    <a class="footer-link" href="" target="_blank" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </ul>
+<!--FOOTER-->
+<footer class="footer mt-5">
+    <div class="col">
+        <ul class="d-flex ulst-inulne justify-content-end">
+            <ul class="ulst-inulne-item">
+                <a class="footer-link" href="" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </ul>
-        </div>
-    </footer>
+            <ul class="ulst-inulne-item">
+                <a class="footer-link" href="" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </ul>
+            <ul class="ulst-inulne-item">
+                <a class="footer-link" href="" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </ul>
+        </ul>
+    </div>
+</footer>
 {{!-- </div> --}}
 <script src="/js/members.js" type="text/javascript"></script>

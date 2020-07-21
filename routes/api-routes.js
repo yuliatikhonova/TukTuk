@@ -158,7 +158,8 @@ module.exports = function(app) {
       } else {
         req.file.filename = req.file.filename;
       }
-      db.post.update(
+      db.post
+        .update(
           {
             city: req.body.city,
             countryName: req.body.countryName,

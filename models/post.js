@@ -16,10 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     blogPost: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        len: [1]
-      }
+      allowNull: true
     },
     imageUpload: {
       type: DataTypes.STRING
